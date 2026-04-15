@@ -8,7 +8,7 @@
 
 ## What Is This
 
-A reusable skill specification for reverse-engineering websites. Given a URL and a curl command (with cookies/tokens copied from your browser), it automatically:
+A reusable skill specification for reverse-engineering websites. Given a URL and a curl command with authentication info (Cookie/Token), it automatically:
 
 1. **Understand** — Discover what a website does: its API endpoints, page structure, and data flows
 2. **Operate** — Call those APIs directly using your credentials to get things done
@@ -16,12 +16,22 @@ A reusable skill specification for reverse-engineering websites. Given a URL and
 
 The key insight: **reverse engineering is a means, not the end**. Once you've analyzed a site, the output is an actionable skill you can reuse instantly.
 
+### How to Get the curl
+
+You need a curl command that carries your login session. It's easy to get from your browser:
+
+1. Open the target website and log in
+2. Press **F12** to open DevTools → switch to the **Network** tab
+3. Browse the site normally — you'll see API requests appear
+4. Find any request to the site's own domain, **right-click** it → **Copy** → **Copy as cURL**
+5. Paste that curl into your AI chat — it contains your Cookie, CSRF token, and other auth headers
+
 ### How It Works with Skill Creator
 
-This skill is designed to pair with a [skill-creator](https://docs.anthropic.com/) workflow:
+This skill is designed to pair with [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) — a skill that creates other skills:
 
 ```
-User provides:  URL + curl (with auth headers/cookies)
+User provides:  URL + curl (from F12 → Network → right-click → Copy as cURL)
                           ↓
       web-reverse-engineer analyzes the site
                           ↓
@@ -32,7 +42,7 @@ User provides:  URL + curl (with auth headers/cookies)
       Next time: call that skill directly, no re-analysis needed
 ```
 
-Example: You provide `https://www.yuque.com` + a curl from your browser. This skill reverse-engineers the Yuque API, then skill-creator packages it into a `yuque` skill that can list/read/create/edit documents — permanently.
+Example: You provide `https://www.yuque.com` + a curl copied from your browser. This skill reverse-engineers the Yuque API, then [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) packages it into a `yuque` skill that can list/read/create/edit documents — permanently.
 
 ### Trigger Scenarios
 
@@ -132,7 +142,7 @@ MIT License
 
 ## 这是什么
 
-一个通用的网站逆向分析 skill 规范。给定一个 URL 和一条从浏览器复制的 curl 命令（含 Cookie/Token），它能自动：
+一个通用的网站逆向分析 skill 规范。给定一个 URL 和一条含鉴权信息的 curl 命令（Cookie/Token），它能自动：
 
 1. **理解** — 搞清楚网站能做什么：API 端点、页面结构、数据流
 2. **操作** — 用你提供的凭证直接调用 API 完成任务
@@ -140,12 +150,22 @@ MIT License
 
 核心理念：**逆向只是手段，不是目的**。分析一次之后，输出的是一个可复用的操作 skill。
 
+### 如何获取 curl
+
+你需要一条携带登录态的 curl 命令，从浏览器获取非常简单：
+
+1. 打开目标网站并登录
+2. 按 **F12** 打开开发者工具 → 切换到 **网络（Network）** 标签
+3. 正常浏览网站 — 你会看到 API 请求不断出现
+4. 找到一条该网站域名的请求，**右键** → **复制** → **复制为 cURL**
+5. 把复制的 curl 粘贴给 AI — 它里面包含了你的 Cookie、CSRF Token 等鉴权信息
+
 ### 与 Skill Creator 的联动
 
-本 skill 设计为与 skill-creator 工作流配合使用：
+本 skill 设计为与 [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator)（一个用于创建其他 skill 的 skill）配合使用：
 
 ```
-用户提供：URL + curl（含鉴权头/Cookie）
+用户提供：URL + curl（从 F12 → 网络 → 右键复制为 cURL 获取）
                     ↓
     web-reverse-engineer 分析网站
                     ↓
@@ -156,7 +176,7 @@ MIT License
     下次：直接调用该 skill，无需重新分析
 ```
 
-示例：你提供 `https://www.yuque.com` + 浏览器复制的 curl。本 skill 逆向分析语雀 API，然后 skill-creator 把它打包成一个 `yuque` skill，可以列出/读取/创建/编辑文档 —— 永久可用。
+示例：你提供 `https://www.yuque.com` + 从浏览器复制的 curl。本 skill 逆向分析语雀 API，然后 [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) 把它打包成一个 `yuque` skill，可以列出/读取/创建/编辑文档 —— 永久可用。
 
 ### 触发场景
 
