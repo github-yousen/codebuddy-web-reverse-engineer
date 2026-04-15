@@ -50,7 +50,7 @@ Example: You provide `https://www.yuque.com` + a curl from your browser. This sk
 Clone this skill into your AI tool's skills directory:
 
 ```bash
-git clone https://github.com/github-yousen/codebuddy-web-reverse-engineer.git <your-skills-dir>/web-reverse-engineer
+git clone https://github.com/github-yousen/web-reverse-engineer.git <your-skills-dir>/web-reverse-engineer
 ```
 
 ### Use
@@ -174,7 +174,7 @@ MIT License
 将本 skill 克隆到你的 AI 工具的 skills 目录：
 
 ```bash
-git clone https://github.com/github-yousen/codebuddy-web-reverse-engineer.git <你的skills目录>/web-reverse-engineer
+git clone https://github.com/github-yousen/web-reverse-engineer.git <你的skills目录>/web-reverse-engineer
 ```
 
 ### 使用
