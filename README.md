@@ -61,8 +61,9 @@ The curl carries your login session. Get it from your browser:
 1. Open the target website and log in
 2. Press **F12** → **Network** tab
 3. Browse the site normally — API requests will appear
-4. Right-click any request to the site's own domain → **Copy** → **Copy as cURL**
-5. Paste into your AI chat — it contains your Cookie, CSRF token, and other auth headers
+4. Find a request **to the target site's domain** (filter by domain if needed — ignore browser extension requests from other domains)
+5. Right-click that request → **Copy** → **Copy as cURL**
+6. Paste into your AI chat — it contains your Cookie, CSRF token, and other auth headers
 
 Without a curl, the skill can still analyze the public-facing surface. With a curl, it unlocks the full authenticated API.
 
@@ -84,7 +85,7 @@ URL + curl (from F12 → Network → Copy as cURL)
         Next time: call that skill directly, no re-analysis
 ```
 
-For instance: you provide `https://www.yuque.com` + a curl from your browser. This skill reverse-engineers the Yuque API, then skill-creator packages it into a `yuque` skill that can list/read/create/edit documents — permanently reusable.
+For instance: you provide `https://www.example.com` + a curl copied from your browser. This skill reverse-engineers the site's API — discovers endpoints for listing, searching, creating, and updating resources. Then skill-creator can package that analysis into a dedicated `example` skill, permanently reusable without re-analysis.
 
 ---
 
@@ -201,8 +202,9 @@ curl 携带你的登录态，从浏览器获取：
 1. 打开目标网站并登录
 2. 按 **F12** → **网络（Network）** 标签
 3. 正常浏览网站 — API 请求会不断出现
-4. 找到一条该网站域名的请求，**右键** → **复制** → **复制为 cURL**
-5. 粘贴给 AI — 里面包含了你的 Cookie、CSRF Token 等鉴权信息
+4. 找到一条**目标网站域名**的请求（可按域名筛选 — 忽略浏览器扩展等其他域名的请求）
+5. **右键** → **复制** → **复制为 cURL**
+6. 粘贴给 AI — 里面包含了你的 Cookie、CSRF Token 等鉴权信息
 
 没有 curl 也能分析公开页面，有 curl 才能解锁完整鉴权后的 API。
 
@@ -224,7 +226,7 @@ URL + curl（从 F12 → 网络 → 右键复制为 cURL 获取）
         下次：直接调用该 skill，无需重新分析
 ```
 
-例如：你提供 `https://www.yuque.com` + 浏览器复制的 curl。本 skill 逆向分析语雀 API，然后 skill-creator 把它打包成一个 `yuque` skill，可以列出/读取/创建/编辑文档 —— 永久可用。
+例如：你提供 `https://www.example.com` + 从浏览器复制的 curl。本 skill 逆向分析该网站的 API —— 发现列表、搜索、创建、更新等接口。然后 skill-creator 可以把分析结果打包成一个专属的 `example` skill，永久可用，无需再次逆向。
 
 ---
 
