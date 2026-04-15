@@ -34,7 +34,7 @@
 
 ```bash
 # 克隆到 CodeBuddy skills 目录
-git clone https://github.com/yousen-5fvja/web-reverse-engineer.git ~/.codebuddy/skills/web-reverse-engineer
+git clone https://github.com/github-yousen/codebuddy-web-reverse-engineer.git ~/.codebuddy/skills/web-reverse-engineer
 ```
 
 ### 使用
@@ -139,7 +139,7 @@ Triggered when users mention:
 Clone this project into CodeBuddy's skills directory:
 
 ```bash
-git clone https://github.com/yousen-5fvja/web-reverse-engineer.git ~/.codebuddy/skills/web-reverse-engineer
+git clone https://github.com/github-yousen/codebuddy-web-reverse-engineer.git ~/.codebuddy/skills/web-reverse-engineer
 ```
 
 ### Usage
